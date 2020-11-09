@@ -13,10 +13,10 @@
             <MenuItem name="discuss">
               <Icon type="chatbubble-working"></Icon>Discuss
             </MenuItem>
-            <MenuItem name="status">
+            <MenuItem v-if="isAdmin" name="status">
               <Icon type="refresh"></Icon>Status
             </MenuItem>
-            <MenuItem name="ranklist">
+            <MenuItem v-if="isLogined" name="ranklist">
               <Icon type="stats-bars"></Icon>Ranklist
             </MenuItem>
             <MenuItem name="contestList">
