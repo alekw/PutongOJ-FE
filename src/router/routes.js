@@ -26,7 +26,6 @@ import Discuss from '@/views/Discuss/Discuss'
 import DiscussInfo from '@/views/Discuss/DiscussInfo'
 
 // status & solution & ranklist & user & news & faq
-import Status from '@/views/Status'
 import Solution from '@/views/Solution'
 import Ranklist from '@/views/Ranklist'
 import UserInfo from '@/views/UserInfo'
@@ -46,6 +45,7 @@ const UserEdit = r => require.ensure([], () => r(require('@/views/Admin/UserMana
 const GroupEdit = r => require.ensure([], () => r(require('@/views/Admin/UserManage/GroupEdit')), 'admin')
 const AdminEdit = r => require.ensure([], () => r(require('@/views/Admin/UserManage/AdminEdit')), 'admin')
 const TagEdit = r => require.ensure([], () => r(require('@/views/Admin/UserManage/TagEdit')), 'admin')
+const Status = r => require.ensure([], () => r(require('@/views/Status')), 'admin')
 
 export default [
   {
@@ -155,7 +155,7 @@ export default [
     path: '/status',
     name: 'status',
     component: Status,
-    meta: { title: 'Status' }
+    meta: { title: 'Status', requiresAdmin: true }
   },
   {
     path: '/status/:sid',
@@ -167,7 +167,7 @@ export default [
     path: '/ranklist',
     name: 'ranklist',
     component: Ranklist,
-    meta: { title: 'Ranklist' }
+    meta: { title: 'Ranklist', requiresLogin: true }
   },
   {
     path: '/user/:uid',
